@@ -196,7 +196,7 @@ fn main() {
     )
     .current_dir(&build_dir)
     .env("CC", compiler.path())
-    .env("CFLAGS", cflags.clone())
+    .env("CFLAGS", format!("{} -D_GNU_SOURCE", cflags.clone()))
     .env("LDFLAGS", cflags.clone())
     .env("CPPFLAGS", cflags)
     .arg(format!("--with-version={je_version}"))
